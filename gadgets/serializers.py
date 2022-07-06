@@ -9,3 +9,11 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = (
             'id', 'model', 'description', 'price'
         )
+
+
+class ProductWritableSeializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = (
+            'model', 'description', 'price', 'category', 'manufacturer',
+        )
