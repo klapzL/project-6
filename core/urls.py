@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from gadgets.views import ProductList, ProductDetails, ProductDestroy
 
 urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
