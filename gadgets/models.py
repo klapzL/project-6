@@ -1,6 +1,4 @@
-from distutils.command.upload import upload
-from tokenize import blank_re
-from unicodedata import category
+from django_earthdistance.models import EarthDistanceQuerySet
 from django.db import models
 
 # Create your models here.
@@ -38,3 +36,9 @@ class Product(models.Model):
 
     def __str__(self):
         return self.model
+
+
+class House(models.Model):
+    lattitude = models.FloatField()
+    longtitude = models.FloatField()
+    objects = EarthDistanceQuerySet.as_manager()
