@@ -37,3 +37,11 @@ class CategoryListCreate(generics.ListCreateAPIView):
 class CategoryRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = ProductCategory.objects.all()
     serializer_class = ProdcutCategorySerializer
+
+
+def product_list_with_categories(request):
+    products = Product.objects.prefetch_related('tags').all()
+    context = {
+        'products': products,
+    }
+    return render(request, 'gadgets/product_list_with_categories.html', context)

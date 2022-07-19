@@ -1,0 +1,22 @@
+{% extends '_base.html' %}
+
+{% block title %}
+    
+{% endblock title %}
+
+
+{% block content %}
+    <h4>Товары</h4>
+    <ul>
+        {% for p in products %}
+            <li>
+                {{p.model}}, {{p.category.name}}, 
+                {% for t in p.tags %}
+                    <a href="">{{t}}</a> <br>
+                {% endfor %}
+            </li>
+        {% endfor %}    
+    </ul>
+{% endblock content %}
+    
+    
